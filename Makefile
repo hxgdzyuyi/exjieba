@@ -1,9 +1,10 @@
 ERLANG_PATH:=$(shell erl -eval 'io:format("~s~n", [lists:concat([code:root_dir(), "/erts-", erlang:system_info(version), "/include"])])' -s init stop -noshell)
 CPPJIEBA_PATH=priv/libcppjieba/include
+LIMONP_PATH=priv/libcppjieba/deps/limonp/include
 
 CFLAGS=-g -fPIC -O3
 ERLANG_FLAGS=-I$(ERLANG_PATH)
-CPPJIEBA_FLAGS=-I$(CPPJIEBA_PATH)
+CPPJIEBA_FLAGS=-I$(CPPJIEBA_PATH) -I$(LIMONP_PATH)
 CC?=clang
 CXX?=clang++
 EBIN_DIR=ebin
@@ -21,7 +22,7 @@ all:
 	mix compile
 
 libcppjieba_src:
-	git submodule update --init
+	git submodule update --init --recursive
 
 segment: clean libcppjieba_src priv/mp_segment.so priv/hmm_segment.so priv/mix_segment.so priv/query_segment.so
 
