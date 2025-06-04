@@ -1,4 +1,6 @@
 #include "erl_nif.h"
+#include "limonp/Logging.hpp"
+#include "cppjieba/DictTrie.hpp"
 #include "cppjieba/HMMSegment.hpp"
 
 cppjieba::HMMSegment* segment = nullptr;
