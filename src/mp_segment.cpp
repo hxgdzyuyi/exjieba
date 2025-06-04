@@ -1,7 +1,7 @@
 #include "erl_nif.h"
 #include "MPSegment.hpp"
 
-CppJieba::MPSegment segment;
+cppjieba::MPSegment* segment = nullptr;
 
 extern "C"{
 static ERL_NIF_TERM cut(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
@@ -13,7 +13,8 @@ static ERL_NIF_TERM cut(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
     s[bin.size] = '\0';
 
     std::vector<std::string> words;
-    segment.cut(s, words);
+    if(segment)
+        segment->Cut(s, words);
 
     ERL_NIF_TERM r = enif_make_list(env, 0);
     ErlNifBinary h;
@@ -38,7 +39,10 @@ static ERL_NIF_TERM load_dict(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[
     char *words_dict = (char *)enif_alloc(++len);
     enif_get_string(env, argv[0], words_dict, len, ERL_NIF_LATIN1);
 
-    segment.init(words_dict);
+    if(segment) {
+        delete segment;
+    }
+    segment = new cppjieba::MPSegment(words_dict);
     return enif_make_atom(env, "ok\0");
 }
 
