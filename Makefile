@@ -10,6 +10,9 @@ EBIN_DIR=ebin
 
 ifeq ($(shell uname),Darwin)
 	OPTIONS=-dynamiclib -undefined dynamic_lookup -std=c++11
+	ifeq ($(shell uname -m),arm64)
+		OPTIONS+=-arch arm64
+	endif
 else
 	OPTIONS=-lstdc++
 endif

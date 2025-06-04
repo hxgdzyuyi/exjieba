@@ -13,9 +13,5 @@ Jieba segmentation engine via C++ NIFs.
 - C++ code is formatted with four-space indentation. Elixir code uses two spaces.
 - Format Elixir files by running `mix format` before committing.
 
-## Testing
-- Run `mix test` to execute the test suite. Tests will compile the native code
-  as part of the build process.
-
 Keep these steps in mind when modifying the repository to ensure consistency and
 working builds.

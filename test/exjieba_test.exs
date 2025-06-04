@@ -3,8 +3,6 @@ defmodule ExJiebaTest do
   use ExUnit.Case
 
   test "MPSegment" do
-    ExJieba.MPSegment.init()
-
     assert ExJieba.MPSegment.cut(@text) == [
              "小",
              "明",
@@ -22,8 +20,6 @@ defmodule ExJiebaTest do
   end
 
   test "HMMSegment" do
-    ExJieba.HMMSegment.init()
-
     assert ExJieba.HMMSegment.cut(@text) == [
              "小明",
              "硕士",
@@ -46,8 +42,6 @@ defmodule ExJiebaTest do
   end
 
   test "MixSegment" do
-    ExJieba.MixSegment.init()
-
     assert ExJieba.MixSegment.cut(@text) == [
              "小明",
              "硕士",
@@ -64,8 +58,6 @@ defmodule ExJiebaTest do
   end
 
   test "QuerySegment" do
-    ExJieba.QuerySegment.init()
-
     assert ExJieba.QuerySegment.cut(@text) == [
              "小明",
              "硕士",

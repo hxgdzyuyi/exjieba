@@ -1,5 +1,9 @@
 defmodule ExJieba.MixSegment do
-  @on_load :load_nif
+  @on_load :init
+
+  def init do
+    load_nif()
+  end
 
   def load_nif do
     priv_path = :code.priv_dir(:exjieba)
