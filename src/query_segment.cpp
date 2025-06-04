@@ -1,5 +1,5 @@
 #include "erl_nif.h"
-#include "QuerySegment.hpp"
+#include "cppjieba/QuerySegment.hpp"
 
 cppjieba::QuerySegment* segment = nullptr;
 
