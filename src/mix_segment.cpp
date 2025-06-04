@@ -1,5 +1,5 @@
 #include "erl_nif.h"
-#include "MixSegment.hpp"
+#include "cppjieba/MixSegment.hpp"
 
 cppjieba::MixSegment* segment = nullptr;
 

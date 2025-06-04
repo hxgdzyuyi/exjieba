@@ -1,5 +1,5 @@
 #include "erl_nif.h"
-#include "HMMSegment.hpp"
+#include "cppjieba/HMMSegment.hpp"
 
 cppjieba::HMMSegment* segment = nullptr;
 

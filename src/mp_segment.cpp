@@ -1,5 +1,5 @@
 #include "erl_nif.h"
-#include "MPSegment.hpp"
+#include "cppjieba/MPSegment.hpp"
 
 cppjieba::MPSegment* segment = nullptr;
 
