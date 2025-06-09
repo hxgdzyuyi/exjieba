@@ -39,13 +39,12 @@ priv/hmm_segment.so:
 	$(CC) $(CFLAGS) $(ERLANG_FLAGS) $(CPPJIEBA_FLAGS) -shared $(OPTIONS) -DLOGGER_LEVEL=LL_ERROR src/hmm_segment.cpp -o $@ 2>&1 >/dev/null
 
 priv/query_segment.so:
-        mkdir -p priv && \
-        $(CC) $(CFLAGS) $(ERLANG_FLAGS) $(CPPJIEBA_FLAGS) -shared $(OPTIONS) -DLOGGER_LEVEL=LL_ERROR src/query_segment.cpp -o $@ 2>&1 >/dev/null
+	mkdir -p priv && \
+  $(CC) $(CFLAGS) $(ERLANG_FLAGS) $(CPPJIEBA_FLAGS) -shared $(OPTIONS) -DLOGGER_LEVEL=LL_ERROR src/query_segment.cpp -o $@ 2>&1 >/dev/null
 
 priv/jieba.so:
-        mkdir -p priv && \
-        $(CC) $(CFLAGS) $(ERLANG_FLAGS) $(CPPJIEBA_FLAGS) -shared $(OPTIONS) -DLOGGER_LEVEL=LL_ERROR src/jieba.cpp -o $@ 2>&1 >/dev/null
-
+	mkdir -p priv && \
+  $(CC) $(CFLAGS) $(ERLANG_FLAGS) $(CPPJIEBA_FLAGS) -shared $(OPTIONS) -DLOGGER_LEVEL=LL_ERROR src/jieba.cpp -o $@ 2>&1 >/dev/null
 
 clean:
-        rm -rf priv/*_segment.* priv/jieba.*
+	rm -rf priv/*_segment.* priv/jieba.*
